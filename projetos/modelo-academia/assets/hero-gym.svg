@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 880" role="img" aria-label="Ilustração abstrata de equipamento de musculação com pesos">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#202e23"/><stop offset=".45" stop-color="#111812"/><stop offset="1" stop-color="#070d0b"/></linearGradient>
+  <linearGradient id="disk" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#394a36"/><stop offset=".48" stop-color="#121b16"/><stop offset="1" stop-color="#050b08"/></linearGradient>
+  <linearGradient id="line" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d6ff6a"/><stop offset="1" stop-color="#8daf20"/></linearGradient>
+  <radialGradient id="halo"><stop stop-color="#aee934" stop-opacity=".22"/><stop offset="1" stop-color="#aee934" stop-opacity="0"/></radialGradient>
+  <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#caff43" opacity=".22"/></pattern>
+  <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="16" stdDeviation="21" flood-opacity=".8"/></filter>
+</defs>
+<rect width="800" height="880" fill="url(#bg)"/>
+<circle cx="430" cy="410" r="390" fill="url(#halo)"/>
+<path d="M0 635L800 140v220L0 843z" fill="#d2fb44" opacity=".045"/>
+<rect x="70" y="85" width="660" height="710" fill="url(#dots)"/>
+<circle cx="400" cy="432" r="290" fill="none" stroke="#bff44b" stroke-opacity=".16" stroke-width="2"/>
+<circle cx="400" cy="432" r="233" fill="none" stroke="#bff44b" stroke-opacity=".09" stroke-width="2" stroke-dasharray="8 11"/>
+<g transform="translate(400 435) rotate(-27)" filter="url(#shadow)">
+  <rect x="-300" y="-21" width="600" height="42" rx="10" fill="#74867a" stroke="#d0dacb" stroke-width="4"/>
+  <rect x="-290" y="-76" width="66" height="152" rx="13" fill="url(#disk)" stroke="#81947d" stroke-width="7"/>
+  <rect x="-220" y="-111" width="80" height="222" rx="13" fill="url(#disk)" stroke="#a9bc9f" stroke-width="7"/>
+  <rect x="-145" y="-141" width="61" height="282" rx="13" fill="url(#disk)" stroke="url(#line)" stroke-width="8"/>
+  <rect x="84" y="-141" width="61" height="282" rx="13" fill="url(#disk)" stroke="url(#line)" stroke-width="8"/>
+  <rect x="140" y="-111" width="80" height="222" rx="13" fill="url(#disk)" stroke="#a9bc9f" stroke-width="7"/>
+  <rect x="224" y="-76" width="66" height="152" rx="13" fill="url(#disk)" stroke="#81947d" stroke-width="7"/>
+  <path d="M-108-118v236M109-118v236" stroke="#d8ff69" stroke-opacity=".7" stroke-width="4"/>
+  <rect x="-82" y="-14" width="164" height="28" rx="8" fill="#0b110e" stroke="#657869" stroke-width="2"/>
+  <path d="M-70-11v22m16-22v22m16-22v22m16-22v22m16-22v22m16-22v22m16-22v22m16-22v22" stroke="#536257" stroke-width="4"/>
+</g>
+<path d="M55 125h110M55 125v60M747 685v66h-110" stroke="#cefa54" stroke-width="5" fill="none"/>
+<text x="64" y="790" font-family="Arial,sans-serif" font-weight="800" font-size="20" letter-spacing="7" fill="#ddff86">MOVE WITH PURPOSE</text>
+<text x="741" y="114" text-anchor="end" font-family="Arial,sans-serif" font-weight="800" font-size="18" letter-spacing="5" fill="#ddff86">ACADEMIA / 01</text>
+</svg>
