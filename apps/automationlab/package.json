@@ -1,0 +1,10 @@
+{
+  "name": "automationlab-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Laboratório interativo independente de automações para pequenos negócios",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  }
+}

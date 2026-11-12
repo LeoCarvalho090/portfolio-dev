@@ -49,3 +49,13 @@ Abra `http://localhost:8000/`.
 ## Observação
 
 Os links sociais adicionais são opcionais. Nenhum e-mail pessoal foi incluído automaticamente.
+
+
+## Sistema interativo em destaque — AutomationLab
+
+O projeto autoral independente foi adicionado a `apps/automationlab/` e o cartão foi colocado antes dos dez websites no `index.html`.
+
+- **Demo publicada após upload ao Pages:** `https://leocarvalho090.github.io/portfolio-dev/apps/automationlab/`
+- **Código:** `apps/automationlab/assets/engine.mjs` (regras e estados), `assets/app.js` (interface), `tests/engine.test.mjs`.
+- **Teste:** `cd apps/automationlab && npm test`.
+- **Importante:** toda fila de execução é **simulada no navegador**; não há processamento em backend ou dados de clientes.
