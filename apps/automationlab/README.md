@@ -1,5 +1,7 @@
 # AutomationLab — engenharia de software aplicada à automação
 
+Esta pasta contém a versão integrada do AutomationLab apresentada no portfólio. O desenvolvimento e a documentação principal do projeto também estão disponíveis no [repositório independente](https://github.com/LeoCarvalho090/automationlab).
+
 Desenvolvi o **AutomationLab** para explorar, em uma aplicação que pode ser utilizada e examinada, problemas comuns em sistemas de automação: validar dados, controlar o estado de tarefas, evitar operações repetidas e lidar com falhas de forma rastreável.
 
 O cenário é uma pequena operação comercial **inteiramente fictícia**. A proposta é tornar visível a lógica por trás da interface, sem depender de dados, código ou regras de sistemas corporativos.
@@ -59,8 +61,8 @@ package.json
 O projeto não exige framework, banco remoto ou instalação de pacotes para a interface.
 
 ```bash
-git clone https://github.com/LeoCarvalho090/automationlab.git
-cd automationlab
+git clone https://github.com/LeoCarvalho090/portfolio-dev.git
+cd portfolio-dev/apps/automationlab
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
