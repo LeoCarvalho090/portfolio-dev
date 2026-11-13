@@ -1,61 +1,81 @@
-# Portfólio de Leonardo Carvalho — GitHub Pages
+# Leonardo Carvalho — desenvolvimento web e automação
 
-Portfólio pessoal focado em **desenvolvimento web e automação**. Contém 10 templates conceituais navegáveis e dois estudos de caso descritos sem código ou informações corporativas privadas.
+Sou Leonardo Carvalho, desenvolvedor com experiência em **interfaces web, automação de processos e integração de ferramentas**. Este repositório reúne projetos independentes que apresentam minha forma de trabalhar: compreender necessidades, estruturar regras, desenvolver interfaces claras e criar soluções com comportamento verificável.
 
-## Publicação no GitHub Pages
+**[Conhecer o portfólio](https://leocarvalho090.github.io/portfolio-dev/)** · **[LinkedIn](https://www.linkedin.com/in/leonardo-carvalho-131464449)** · **[Projeto AutomationLab](https://github.com/LeoCarvalho090/automationlab)**
 
-1. No GitHub, crie um repositório **público** chamado `portfolio-dev` no usuário `LeoCarvalho090`.
-2. Extraia o ZIP e envie **o conteúdo interno da pasta**, incluindo `index.html`, `assets/`, `projetos/`, `.nojekyll`, `robots.txt` e `sitemap.xml`, diretamente para a raiz do repositório. Não envie uma pasta `portfolio-dev/` envolvendo tudo.
-3. Abra **Settings → Pages** e escolha **Deploy from a branch**, branch `main`, pasta `/ (root)`.
-4. Após o deploy, acesse `https://leocarvalho090.github.io/portfolio-dev/`.
-5. Teste os dez botões “Ver website” e a navegação móvel.
+## Projetos em destaque
 
-> Os caminhos de `canonical`, `og:image`, `sitemap.xml` e `robots.txt` foram preparados para a URL acima. Se mudar o nome do repositório ou usuário, ajuste estes quatro itens antes de publicar.
+### AutomationLab — automação e lógica de sistemas
 
-## Desenvolvimento local
+Aplicação demonstrativa em JavaScript que reúne auditoria de estoque, validação de pedidos e relatórios de vendas fictícias. Inclui controle de estados, fila visual simulada, prevenção de tarefas duplicadas, falhas controladas, histórico e testes unitários.
+
+- [Experimentar aplicação](https://leocarvalho090.github.io/portfolio-dev/apps/automationlab/)
+- [Código-fonte e documentação técnica](https://github.com/LeoCarvalho090/automationlab)
+
+As rotinas de negócio executam cálculos reais sobre dados fictícios; a fila e a temporização são simuladas no navegador. Não há backend ou banco de dados compartilhado.
+
+### Websites responsivos — 10 conceitos independentes
+
+Desenvolvi **dez interfaces demonstrativas** para segmentos comerciais distintos, com duas abordagens visuais para cada segmento: barbearias, academias, oficinas, pet shops e hamburguerias.
+
+Os exemplos exploram **HTML semântico, CSS responsivo, identidade visual, navegação móvel e interatividade em JavaScript**. Alguns incluem filtros, carrinhos ou formulários de demonstração; nenhuma operação representa agendamento, compra ou atendimento real.
+
+[Explorar a galeria de websites](https://leocarvalho090.github.io/portfolio-dev/#projetos)
+
+## Experiência aplicada
+
+Além dos projetos autorais, minha trajetória envolve automação de rotinas administrativas com **JavaScript, Google Apps Script e Google Workspace**, integrando ferramentas para organização de registros, documentos e comunicações.
+
+Também participei, durante minha formação técnica, do desenvolvimento em equipe de um sistema acadêmico de agendamento de consultas, com aplicativo Android, interface web e gerenciamento de agenda.
+
+Essas experiências são apresentadas de forma resumida. **Não publico código proprietário, dados de empresas ou materiais confidenciais.**
+
+## Tecnologias e práticas
+
+- **Web:** HTML5, CSS3, JavaScript, layouts responsivos e componentes de interface.
+- **Automação:** Google Apps Script, Google Sheets, Gmail e Drive.
+- **Lógica de sistemas:** regras de negócio, estados, prevenção de duplicidades, tratamento de falhas e registros de eventos.
+- **Ferramentas:** Git, GitHub e testes automatizados com Node.js.
+
+## Organização do repositório
+
+```text
+index.html                  Página principal do portfólio
+assets/                     Estilos, scripts, imagens e configurações
+apps/automationlab/         Versão integrada da demonstração
+projetos/                   Dez websites conceituais independentes
+robots.txt e sitemap.xml    Recursos básicos de indexação do portfólio
+```
+
+Os READMEs de cada demonstração registram suas particularidades e limitações.
+
+### Execução local
+
+Este portfólio é estático e pode ser executado com um servidor HTTP simples:
 
 ```bash
+git clone https://github.com/LeoCarvalho090/portfolio-dev.git
 cd portfolio-dev
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Abra `http://localhost:8000/`.
+Acesse `http://localhost:8000/`. Para os testes do AutomationLab:
 
-## Personalizar informações
+```bash
+cd apps/automationlab
+npm test
+```
 
-- `index.html`: título, biografia e estudos de caso.
-- `assets/js/site-config.js`: link do GitHub e opcionais `linkedin` e `email`. Campos vazios não são exibidos ao público.
-- `assets/js/projects.js`: nomes, segmentos, descrições e caminhos das 10 demonstrações.
-- `assets/css/styles.css`: tema visual e responsividade.
-- `assets/img/`: miniaturas e imagem de compartilhamento.
-- `projetos/`: cópias de sites demonstrativos; todos marcados com `noindex,nofollow` e aviso de projeto conceitual.
+Os testes exigem Node.js 20 ou superior.
 
-## Privacidade e autoria
+## Transparência sobre os projetos
 
-- **Não** contém código-fonte, dados de clientes, acessos ou documentos do projeto de automação corporativa.
-- Os dez websites são **templates conceituais**, e não contratos ou clientes atendidos.
-- Alguns templates antigos usam imagens externas de Unsplash e fontes do Google. Revise as licenças e substitua imagens antes de comercializar um modelo.
-- O GitHub Pages gratuito, em repositório público, torna **todos os arquivos enviados ao repositório visíveis a outras pessoas**. Publicar este ZIP permite inspeção do código dos templates. Para manter o código privado, considere publicar apenas as miniaturas e apontar as demonstrações para hospedagem externa.
-- Não há licença aberta incluída. Isso não impede terceiros de visualizar o código disponível publicamente.
+Os websites e seus estabelecimentos são **fictícios**, com informações comerciais ilustrativas. Recursos como agendamento, WhatsApp, carrinho e formulário não enviam pedidos ou dados reais quando não configurados. Fotografias externas eventualmente utilizadas pertencem aos respectivos titulares e estão sujeitas às suas licenças.
 
-## Testes locais realizados
+O código deste portfólio pode ser examinado publicamente, mas **não há licença de código aberto declarada**. Isso não concede autorização automática para redistribuição ou exploração comercial.
 
-- Navegação e filtros por 5 categorias
-- Busca instantânea de modelos
-- Menu responsivo
-- Abertura das 10 demos
-- Layout de desktop e mobile
+---
 
-## Observação
-
-Os links sociais adicionais são opcionais. Nenhum e-mail pessoal foi incluído automaticamente.
-
-
-## Sistema interativo em destaque — AutomationLab
-
-O projeto autoral independente foi adicionado a `apps/automationlab/` e o cartão foi colocado antes dos dez websites no `index.html`.
-
-- **Demo publicada após upload ao Pages:** `https://leocarvalho090.github.io/portfolio-dev/apps/automationlab/`
-- **Código:** `apps/automationlab/assets/engine.mjs` (regras e estados), `assets/app.js` (interface), `tests/engine.test.mjs`.
-- **Teste:** `cd apps/automationlab && npm test`.
-- **Importante:** toda fila de execução é **simulada no navegador**; não há processamento em backend ou dados de clientes.
+**Leonardo Carvalho**  
+[Portfólio](https://leocarvalho090.github.io/portfolio-dev/) · [LinkedIn](https://www.linkedin.com/in/leonardo-carvalho-131464449) · [GitHub](https://github.com/LeoCarvalho090)

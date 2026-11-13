@@ -1,10 +1,16 @@
-# Modelo 08 — Seu Pet Shop (Bosque)
+# Pet Shop · Bosque — website demonstrativo
 
-Alternativa com verde-pistache, lilás e creme; ilustrações SVG originais e filtros de serviços por pet.
+Alternativa visual para um pet shop fictício, com **tons botânicos, composição leve e ilustrações vetoriais**.
 
-- `index.html`
-- `assets/css/styles.css`
-- `assets/js/main.js`
-- `assets/img/hero.svg`
+## Implementação
 
-O filtro cão/gato funciona localmente. Não há contato real, dados de clientes ou agendamento externo.
+- Layout responsivo para apresentar serviços.
+- Navegação móvel e componentes interativos em JavaScript.
+- Filtros locais para explorar serviços voltados a cães e gatos.
+- Arte SVG criada para a demonstração.
+
+## Escopo
+
+Os filtros modificam apenas a interface exibida. Não há agenda, cadastro de clientes nem envio de solicitações. A identidade e as informações do estabelecimento são fictícias.
+
+[Ver demonstração](https://leocarvalho090.github.io/portfolio-dev/projetos/petshop-bosque/)

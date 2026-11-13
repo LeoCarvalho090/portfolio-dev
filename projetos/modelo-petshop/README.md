@@ -1,23 +1,16 @@
-# AMORA PET CARE — site demonstrativo
+# Pet Shop · Acolhedor — website demonstrativo
 
-Projeto fictício para portfólio. **Nomes, textos, preços, horários e informações do negócio são ilustrativos.**
+Projeto de landing page para um pet shop fictício, combinando **paleta suave, ilustrações e seções de serviços e cuidados**.
 
-## Abrir localmente
+## Implementação
 
-1. Abra a pasta no VS Code.
-2. Abra `index.html` no navegador (duplo clique) ou use a extensão **Live Server**.
-3. Não é necessário instalar dependências, rodar NPM ou configurar banco de dados.
+- Layout responsivo e navegação móvel.
+- Apresentação de serviços e chamadas para contato.
+- Interações leves em JavaScript e animações de entrada.
+- Botões de WhatsApp com comportamento de demonstração enquanto não existe contato configurado.
 
-## Como adaptar para um cliente
+## Escopo
 
-- Textos, modalidades e links de seções: `index.html`.
-- Cores, layout e responsividade: `assets/css/styles.css`.
-- Número do WhatsApp: `assets/js/main.js` → `WHATSAPP_NUMBER = "5511XXXXXXXXX"`.
-- Arte e favicon: `assets/img/` (substituir por fotografias próprias ou licenciadas).
-- Testar no celular, atualizar preços/horários e verificar todos os links antes de publicar.
+Não há agendamento ou atendimento real. Marca, preços, contatos e informações comerciais são ilustrativos.
 
-## Publicação
-
-Site 100% estático: pode ser publicado em Cloudflare Pages, Netlify, GitHub Pages ou hospedagem estática equivalente. O domínio deve pertencer ao cliente.
-
-**Não publicar como empresa real sem substituir os dados fictícios e confirmar autorização de uso de identidade e imagens.**
+[Ver demonstração](https://leocarvalho090.github.io/portfolio-dev/projetos/modelo-petshop/)

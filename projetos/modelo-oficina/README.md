@@ -1,23 +1,16 @@
-# TORQUE AUTO — site demonstrativo
+# Oficina · Essencial — website demonstrativo
 
-Projeto fictício para portfólio. **Nomes, textos, preços, horários e informações do negócio são ilustrativos.**
+Interface institucional para uma oficina mecânica fictícia, desenvolvida com atenção à **organização de serviços, leitura rápida e navegação em dispositivos móveis**.
 
-## Abrir localmente
+## Implementação
 
-1. Abra a pasta no VS Code.
-2. Abra `index.html` no navegador (duplo clique) ou use a extensão **Live Server**.
-3. Não é necessário instalar dependências, rodar NPM ou configurar banco de dados.
+- Apresentação de serviços automotivos e chamadas para orçamento.
+- Estrutura estática em HTML e CSS responsivo.
+- Menu móvel e animações de entrada com respeito à preferência por movimento reduzido.
+- Contato por WhatsApp apenas quando um número real e autorizado é configurado.
 
-## Como adaptar para um cliente
+## Escopo
 
-- Textos, modalidades e links de seções: `index.html`.
-- Cores, layout e responsividade: `assets/css/styles.css`.
-- Número do WhatsApp: `assets/js/main.js` → `WHATSAPP_NUMBER = "5511XXXXXXXXX"`.
-- Arte e favicon: `assets/img/` (substituir por fotografias próprias ou licenciadas).
-- Testar no celular, atualizar preços/horários e verificar todos os links antes de publicar.
+Este projeto não registra solicitações de orçamento nem possui sistema de gestão de oficina. Serviços, contatos e informações comerciais são fictícios.
 
-## Publicação
-
-Site 100% estático: pode ser publicado em Cloudflare Pages, Netlify, GitHub Pages ou hospedagem estática equivalente. O domínio deve pertencer ao cliente.
-
-**Não publicar como empresa real sem substituir os dados fictícios e confirmar autorização de uso de identidade e imagens.**
+[Ver demonstração](https://leocarvalho090.github.io/portfolio-dev/projetos/modelo-oficina/)

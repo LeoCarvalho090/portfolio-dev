@@ -1,10 +1,16 @@
-# Modelo 07 — Sua Oficina (Azul Performance)
+# Oficina · Performance — website demonstrativo
 
-Alternativa automotiva: azul elétrico + azul-marinho + branco, estilo engenharia/tecnologia.
+Conceito de website automotivo com **tons de azul, linguagem visual técnica e foco em serviços**.
 
-- `index.html` página
-- `assets/css/styles.css` estilos
-- `assets/js/main.js` menu, modal e simulação do formulário
-- `assets/img/hero.svg` ilustração original
+## Implementação
 
-Os campos de formulário **não enviam nem armazenam informações**; apenas mostram uma simulação local. Ajuste marcas, conteúdo e contato antes de oferecer ao público.
+- Interface responsiva com estrutura HTML e CSS.
+- Menu móvel e componentes interativos.
+- Formulário demonstrativo com resposta local.
+- Ilustração SVG utilizada na apresentação visual.
+
+## Escopo
+
+O formulário não envia nem armazena dados, e não existe atendimento externo integrado. A oficina e todas as informações apresentadas são fictícias.
+
+[Ver demonstração](https://leocarvalho090.github.io/portfolio-dev/projetos/oficina-performance/)

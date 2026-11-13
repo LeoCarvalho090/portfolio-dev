@@ -1,23 +1,16 @@
-# BRASA BURGER — site demonstrativo
+# Hamburgueria · Urbana — website demonstrativo
 
-Projeto fictício para portfólio. **Nomes, textos, preços, horários e informações do negócio são ilustrativos.**
+Projeto de interface comercial para uma hamburgueria fictícia, com **identidade forte, cardápio visual e navegação responsiva**.
 
-## Abrir localmente
+## Implementação
 
-1. Abra a pasta no VS Code.
-2. Abra `index.html` no navegador (duplo clique) ou use a extensão **Live Server**.
-3. Não é necessário instalar dependências, rodar NPM ou configurar banco de dados.
+- Página estruturada em HTML semântico.
+- CSS responsivo para diferentes dimensões de tela.
+- Menu móvel, revelação visual de seções e ações de contato em JavaScript.
+- Modal informativo quando não existe número de WhatsApp configurado.
 
-## Como adaptar para um cliente
+## Escopo
 
-- Textos, modalidades e links de seções: `index.html`.
-- Cores, layout e responsividade: `assets/css/styles.css`.
-- Número do WhatsApp: `assets/js/main.js` → `WHATSAPP_NUMBER = "5511XXXXXXXXX"`.
-- Arte e favicon: `assets/img/` (substituir por fotografias próprias ou licenciadas).
-- Testar no celular, atualizar preços/horários e verificar todos os links antes de publicar.
+O cardápio, os preços, os contatos e a marca são ilustrativos. O site **não realiza compras, pagamentos ou envios de pedidos**. Os links comerciais permanecem em modo de demonstração.
 
-## Publicação
-
-Site 100% estático: pode ser publicado em Cloudflare Pages, Netlify, GitHub Pages ou hospedagem estática equivalente. O domínio deve pertencer ao cliente.
-
-**Não publicar como empresa real sem substituir os dados fictícios e confirmar autorização de uso de identidade e imagens.**
+[Ver demonstração](https://leocarvalho090.github.io/portfolio-dev/projetos/modelo-hamburgueria/)
