@@ -3,8 +3,11 @@
   const config=window.LEONARDO_PORTFOLIO||{};
   document.querySelectorAll('[data-link="github"]').forEach(el=>el.href=config.github||'https://github.com/LeoCarvalho090');
   document.querySelectorAll('[data-link="studio"]').forEach(el=>el.href=config.studio||'https://vitruno.vitrunostudio.workers.dev/');
-  if(config.linkedin){document.querySelectorAll('[data-link="linkedin"]').forEach(el=>{el.href=config.linkedin;el.hidden=false;});}
-  if(config.email){document.querySelectorAll('[data-link="email"]').forEach(el=>{el.href='mailto:'+config.email;el.hidden=false;});}
+  // Links de contato com fallback próprio: nunca manter href="#" mesmo se site-config.js estiver em cache.
+  const linkedinUrl=config.linkedin||'https://www.linkedin.com/in/leonardo-carvalho-131464449';
+  const emailAddress=config.email||'leonardoprincipal090@outlook.com';
+  document.querySelectorAll('[data-link="linkedin"]').forEach(el=>{el.setAttribute('href',linkedinUrl);el.hidden=false;});
+  document.querySelectorAll('[data-link="email"]').forEach(el=>{el.setAttribute('href','mailto:'+emailAddress);el.hidden=false;});
   const projects=window.PROJETOS_PORTFOLIO||[];
   const grid=document.getElementById('project-grid'), result=document.getElementById('results-count');
   const filterButtons=[...document.querySelectorAll('[data-filter]')];
