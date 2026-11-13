@@ -1,7 +1,7 @@
 /**
- * AutomationLab — laboratório demonstrativo independente.
- * Motor de tarefas escrito do zero para esta demonstração. Sem backend e sem
- * integrações externas. Todas as operações de negócio são puras.
+ * Motor do AutomationLab: regras de negócio, identidade das tarefas e evolução de estados.
+ * O cálculo das rotinas é independente da interface; as transições de fila alteram
+ * explicitamente o estado recebido. Não há servidor nem concorrência real neste projeto.
  */
 export const JOB_TYPES = Object.freeze([
   { id:'stock', name:'Auditoria de estoque', desc:'Identifica itens abaixo do mínimo e disponibilidade', accent:'lime', symbol:'▦' },
@@ -41,6 +41,10 @@ const VALID_TYPES = new Set(JOB_TYPES.map(x=>x.id));
 const STATE_VERSION = 1;
 const iso = ()=>new Date().toISOString();
 
+/**
+ * Executa uma regra de negócio com dados fornecidos, sem efeitos externos.
+ * A interface pode utilizar o resultado para apresentação e exportação em CSV.
+ */
 export function runOperation(type, data=DATASET){
   if(type==='stock'){
     const rows=data.products.map(p=>({
@@ -90,6 +94,10 @@ function addAudit(state,kind,taskId,description){
   state.audit.unshift({id:`EV-${state.seq}-${state.audit.length+1}`,at:iso(),kind,taskId,description});
   state.audit=state.audit.slice(0,120);
 }
+/**
+ * Normaliza tipo + referência e bloqueia duplicidades no estado deste navegador.
+ * A tentativa repetida é auditada, mas não cria um novo registro de tarefa.
+ */
 export function enqueue(state,{type,reference,failOnce=false}){
   if(!VALID_TYPES.has(type))throw new Error('Selecione uma automação válida.');
   const ref=String(reference||'').toUpperCase().trim();
@@ -108,6 +116,10 @@ export function beginTask(state,id){
   addAudit(state,'started',task.id,`Execução iniciada · tentativa ${task.attempts}.`);
   return task;
 }
+/**
+ * Finaliza a etapa simulada: registra a falha programada ou calcula um resultado real.
+ * A tarefa só é concluída se estiver no estado running.
+ */
 export function finishTask(state,id){
   const task=state.tasks.find(t=>t.id===id);if(!task||task.status!=='running')return null;
   if(task.failOnce&&task.attempts===1){
@@ -127,6 +139,10 @@ export function retryTask(state,id){
   addAudit(state,'retried',task.id,`Retorno à fila mantendo o mesmo identificador ${task.id}.`);
   return true;
 }
+/**
+ * Ao reabrir a página, não presume sucesso de execuções que ficaram em andamento.
+ * Esses registros são marcados como interrompidos para possível reenvio manual.
+ */
 export function interruptRunning(state){
   let changed=false;
   state.tasks.filter(t=>t.status==='running').forEach(t=>{

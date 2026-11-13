@@ -1,9 +1,5 @@
-/* CONFIGURAÇÃO DO CLIENTE ======================================
-   Preencha apenas quando o site for contratado.
-   Ex.: const WHATSAPP_NUMBER = "5511999999999";
-   DDI + DDD + número; somente dígitos, sem +, espaços ou traços.
-   Enquanto vazio, os botões abrem o aviso de demonstração.
-=============================================================== */
+/* Contato externo opcional: o número vazio mantém a experiência em modo demonstrativo.
+   As chamadas para ação não enviam mensagens sem uma configuração explícita. */
 const WHATSAPP_NUMBER = "";
 
 const menuButton = document.querySelector('[data-menu-button]');
@@ -39,7 +35,7 @@ document.querySelectorAll('[data-whatsapp]').forEach(button => {
     } else if (demoDialog && typeof demoDialog.showModal === 'function') {
       demoDialog.showModal();
     } else {
-      alert('Site fictício de portfólio: adicione o número de WhatsApp do cliente em assets/js/main.js.');
+      alert('Este é um website demonstrativo. Nenhuma mensagem é enviada.');
     }
   });
 });

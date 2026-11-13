@@ -1,5 +1,11 @@
 import { JOB_TYPES, seedState, validateState, enqueue, beginTask, finishTask, retryTask, interruptRunning, metrics, resultToCsv } from './engine.mjs';
 
+/**
+ * Camada de apresentação do AutomationLab.
+ * Mantém a interface sincronizada com o estado salvo no navegador e simula
+ * as etapas temporais da fila. Validações e cálculos pertencem ao engine.mjs.
+ */
+
 (() => {
   const STORE_KEY = 'automationlab:demo:v1';
   const MAX_PARALLEL = 2;

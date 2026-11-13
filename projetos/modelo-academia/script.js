@@ -1,7 +1,7 @@
 (() => {
   'use strict';
-  // CONFIGURAÇÃO: depois da venda, substitua pelo número real no formato 55 + DDD + número.
-  // Exemplo fictício de formato (NÃO use este número): '5511999999999'.
+  // A demonstração mantém o contato vazio para não abrir conversas não autorizadas.
+  // A integração admite um telefone válido com DDI e DDD quando houver uso real.
   const WHATSAPP_NUMBER = '';
   const BUSINESS_NAME = 'Sua Academia';
   const navigation = document.getElementById('site-nav');

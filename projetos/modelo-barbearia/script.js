@@ -1,14 +1,12 @@
 /* =======================================================
-  CONFIGURAÇÃO RÁPIDA PARA CADA CLIENTE
-  - Use apenas números no telefone: DDI + DDD + número.
-  - Exemplo de formato (NÃO use este número): 5511999999999.
-  - Deixe whatsappNumber vazio para ativar o modo demonstração.
-  - O modelo é conceitual; preços, horários e descrições são ilustrativos.
+  Configuração da interface demonstrativa.
+  A ausência de número de WhatsApp impede contatos externos acidentais.
+  O código mantém separados os dados de apresentação e as ações de navegação.
 ======================================================= */
 const SITE_CONFIG = {
   businessName: 'SUA',
   city: 'São Paulo — SP',
-  whatsappNumber: '', // Ex.: '55' + DDD + número REAL do cliente
+  whatsappNumber: '', // Sem número configurado: fluxo demonstrativo, sem contato externo
   messagePrefix: 'Olá! Vi o site da Sua Barbearia e gostaria de agendar',
 };
 
@@ -33,7 +31,7 @@ navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', 
   menuButton.setAttribute('aria-label', 'Abrir menu');
 }));
 
-// Se o navegador não conseguir baixar as fotos de exemplo, o desenho local aparece.
+// Preserva a apresentação da página quando uma fotografia externa não carrega.
 document.querySelectorAll('img.photo-image').forEach(img => {
   img.addEventListener('error', () => {
     img.style.display = 'none';
@@ -43,7 +41,7 @@ document.querySelectorAll('img.photo-image').forEach(img => {
 const toast = document.getElementById('demo-toast');
 let toastTimeout;
 function showDemoToast() {
-  toast.textContent = 'Este é um site de demonstração. Ao cadastrar o WhatsApp real do cliente no arquivo script.js, este botão abrirá uma conversa com a mensagem de agendamento preenchida.';
+  toast.textContent = 'Este é um website demonstrativo. Nenhum agendamento ou mensagem é enviado.';
   toast.classList.add('is-visible');
   clearTimeout(toastTimeout);
   toastTimeout = setTimeout(() => toast.classList.remove('is-visible'), 6500);

@@ -3,7 +3,7 @@
   const config=window.LEONARDO_PORTFOLIO||{};
   document.querySelectorAll('[data-link="github"]').forEach(el=>el.href=config.github||'https://github.com/LeoCarvalho090');
   document.querySelectorAll('[data-link="studio"]').forEach(el=>el.href=config.studio||'https://vitruno.vitrunostudio.workers.dev/');
-  // Links de contato com fallback próprio: nunca manter href="#" mesmo se site-config.js estiver em cache.
+  // Mantém os links profissionais acessíveis mesmo quando a configuração externa estiver indisponível.
   const linkedinUrl=config.linkedin||'https://www.linkedin.com/in/leonardo-carvalho-131464449';
   const emailAddress=config.email||'leonardoprincipal090@outlook.com';
   document.querySelectorAll('[data-link="linkedin"]').forEach(el=>{el.setAttribute('href',linkedinUrl);el.hidden=false;});

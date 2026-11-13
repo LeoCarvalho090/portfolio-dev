@@ -1,3 +1,5 @@
+// Os testes exercitam o motor isoladamente, sem navegador ou serviços externos.
+// Os cenários usam dados fictícios para verificar resultados e transições de estado.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {runOperation,resultToCsv,emptyState,enqueue,beginTask,finishTask,retryTask,interruptRunning,seedState,metrics} from '../assets/engine.mjs';

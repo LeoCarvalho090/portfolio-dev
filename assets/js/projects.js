@@ -1,3 +1,4 @@
+// Catálogo dos dez estudos de interface: conceitos independentes, sem clientes ou operações reais.
 window.PROJETOS_PORTFOLIO = [
   {
     "id": "modelo-barbearia",

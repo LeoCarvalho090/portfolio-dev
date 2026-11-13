@@ -1,85 +1,86 @@
-# AutomationLab — laboratório interativo de automação
+# AutomationLab — engenharia de software aplicada à automação
 
-Projeto demonstrativo independente, criado do zero para apresentar competências em JavaScript, organização de código, regras de negócio, testes, estados, deduplicação, auditoria e recuperação de uma execução simulada. **Não usa código, lógica exclusiva ou dados de sistemas comerciais de terceiros.**
+Desenvolvi o **AutomationLab** para explorar, em uma aplicação que pode ser utilizada e examinada, problemas comuns em sistemas de automação: validar dados, controlar o estado de tarefas, evitar operações repetidas e lidar com falhas de forma rastreável.
 
-## O que funciona
+O cenário é uma pequena operação comercial **inteiramente fictícia**. A proposta é tornar visível a lógica por trás da interface, sem depender de dados, código ou regras de sistemas corporativos.
 
-- **Auditoria de estoque:** calcula saldo disponível (estoque menos reservas) e identifica produtos abaixo do mínimo.
-- **Validação de pedidos:** confere a existência do SKU, quantidades e disponibilidade; não efetiva uma venda.
-- **Relatório de vendas:** soma valores fictícios e gera CSV (UTF-8 com BOM, separado por ponto e vírgula, para Excel em português).
-- **Fila demonstrativa:** simula até duas tarefas simultâneas usando timers no navegador. Não existe processamento em servidor.
-- **Idempotência demonstrativa:** uma mesma combinação `tipo + referência` nunca cria duas tarefas no estado local. Tentativas duplicadas são auditadas.
-- **Falha controlada:** escolha “simular falha na primeira execução”, inspecione o erro, volte à fila e execute novamente com o mesmo ID.
-- **Retomada:** se a página recarregar enquanto uma tarefa estiver `running`, ela será marcada `interrupted` e exigirá reenvio manual. Não há retomada automática de uma ação real.
-- **Auditoria e exportação:** registros de eventos em JSON, resultados em CSV.
-- **Persistência:** dados fictícios no `localStorage` do navegador; botão para restaurar o estado inicial.
+**[Abrir demonstração interativa](https://leocarvalho090.github.io/portfolio-dev/apps/automationlab/)** · **[Conhecer meu portfólio](https://leocarvalho090.github.io/portfolio-dev/)** · **[Meu LinkedIn](https://www.linkedin.com/in/leonardo-carvalho-131464449)**
 
-## Iniciar no Linux / VS Code
+![Painel do AutomationLab](https://raw.githubusercontent.com/LeoCarvalho090/portfolio-dev/main/assets/img/automationlab.webp)
 
-Na pasta que contém `index.html`:
+## O projeto em funcionamento
+
+A aplicação oferece três rotinas baseadas em dados de demonstração:
+
+- **Auditoria de estoque:** calcula a disponibilidade considerando unidades reservadas e identifica itens abaixo do limite mínimo.
+- **Validação de pedidos:** verifica SKUs, quantidades e saldo disponível, indicando pedidos que exigem revisão.
+- **Relatório de vendas:** consolida lançamentos e permite exportar um CSV compatível com planilhas em português.
+
+Essas regras **são executadas em JavaScript**. Já a fila com duas posições de processamento e os tempos de execução são **simulações realizadas no navegador**, não tarefas concorrentes em um servidor.
+
+## Decisões de implementação
+
+| Aspecto | Como foi tratado |
+| --- | --- |
+| Separação de responsabilidades | `assets/engine.mjs` concentra regras e estados; `assets/app.js` cuida da interface, eventos e armazenamento local. |
+| Identificação de tarefas | Cada solicitação possui um ID e uma chave formada por tipo e referência normalizada. |
+| Prevenção de duplicidades | O estado local rejeita uma nova tarefa com a mesma chave e registra a tentativa no histórico. |
+| Tratamento de falhas | É possível provocar uma falha na primeira execução e reenfileirar a tarefa preservando seu identificador. |
+| Recuperação após recarga | Tarefas que estavam em execução passam ao estado de interrompidas e exigem nova ação do usuário. |
+| Rastreabilidade | Mudanças relevantes geram registros de auditoria, exportáveis em JSON. |
+| Persistência | O `localStorage` mantém o estado demonstrativo naquele navegador. |
+
+O objetivo dessas escolhas foi favorecer **clareza, previsibilidade e facilidade de teste**. A deduplicação é local e não equivale a garantias transacionais em um ambiente com vários usuários.
+
+## Qualidade e testes
+
+O motor possui **nove testes automatizados** com o módulo nativo de testes do Node.js. Eles verificam cálculos e validações, geração de CSV, regras de duplicidade, identificação de tarefas, falhas controladas e retomada do estado.
+
+O repositório também contém um fluxo do **GitHub Actions** que executa `npm test` em pushes e pull requests. A configuração do fluxo não deve ser confundida com uma garantia de implantação ou disponibilidade em produção.
+
+## Estrutura
+
+```text
+index.html                  Interface da aplicação
+assets/
+  app.js                    Interações, fila visual e persistência local
+  engine.mjs                Regras de negócio e transições de estado
+  styles.css                Layout e responsividade
+  favicon.svg
+tests/
+  engine.test.mjs           Testes automatizados
+.github/workflows/
+  tests.yml                 Execução dos testes no GitHub Actions
+package.json
+```
+
+### Executar localmente
+
+O projeto não exige framework, banco remoto ou instalação de pacotes para a interface.
 
 ```bash
+git clone https://github.com/LeoCarvalho090/automationlab.git
+cd automationlab
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Abra `http://localhost:8000/`. Pode escolher outra porta se já existir um servidor. Não recomendamos abrir com `file://`, pois os módulos ES e o armazenamento variam entre navegadores.
-
-## Executar testes sem instalar dependências
-
-Com Node.js 20+:
+Acesse `http://localhost:8000/`. Para executar os testes, com **Node.js 20 ou superior** instalado:
 
 ```bash
 npm test
 ```
 
-O comando executa `node --test tests/*.test.mjs` e valida regras de negócio, CSV, deduplicação, falha, retomada e geração de estado.
+O uso de um servidor HTTP local é recomendado porque a interface importa módulos ES.
 
-## Como demonstrar para um recrutador
+## Escopo e limitações
 
-1. Abra a aplicação. Existem quatro operações fictícias: duas concluídas, uma aguardando e uma com falha controlada.
-2. Clique em **Executar fila** para processar a tarefa pendente.
-3. Em **Nova automação**, cadastre uma solicitação. Repita com o mesmo tipo e referência para ver o bloqueio de duplicidade.
-4. Marque **Simular falha na primeira execução** em uma nova solicitação; execute a fila, abra os detalhes e clique em **Tentar novamente**.
-5. Abra uma operação concluída e baixe o CSV de resultados; exporte também o log JSON.
-6. Clique em **Restaurar demo** para reiniciar os dados fictícios.
+O AutomationLab é um **projeto de estudo autoral**, não um sistema comercial em operação. Não possui autenticação, permissões de usuário, banco compartilhado, filas em backend, integrações externas nem sincronização entre dispositivos. Os dados são fictícios e as operações não efetivam vendas, reservas ou mensagens.
 
-## Hospedagem gratuita no GitHub Pages
+Uma evolução para uso empresarial exigiria arquitetura de servidor, persistência confiável, controle de acesso, idempotência transacional, backups, observabilidade e requisitos de privacidade e segurança adequados.
 
-O projeto é estático. Publique os arquivos `index.html`, `assets/`, `.nojekyll` diretamente na raiz de um repositório e configure Settings > Pages > Deploy from a branch, `main` / `(root)`.
+Este código foi desenvolvido como projeto independente. **Não contém código, documentos ou informações internas de empregadores ou clientes.**
 
-Para usar dentro do repositório pessoal `portfolio-dev`, copie a pasta inteira para `apps/automationlab/`. A URL resultante será `https://leocarvalho090.github.io/portfolio-dev/apps/automationlab/` **depois da publicação**.
+---
 
-Para usar no hub local Vitruno Studio, copie a pasta inteira para `Websites/automationlab/` e adicione um cartão apontando para `automationlab/index.html`. Também existe um ZIP de hub já integrado.
-
-## Organização
-
-```text
-automationlab/
-├── index.html
-├── assets/
-│   ├── styles.css       # interface e responsividade
-│   ├── app.js           # controles do navegador, persistência e animação da fila
-│   ├── engine.mjs       # regras de negócio puras e estado da fila
-│   └── favicon.svg
-├── tests/
-│   └── engine.test.mjs  # testes unitários
-├── .nojekyll
-├── package.json
-└── README.md
-```
-
-## Limitações importantes antes de oferecer comercialmente
-
-A versão atual **não é um sistema de produção**, não possui autenticação, banco de dados remoto, permissões, multiusuário, processamento de filas em servidor, proteção contra fraudes ou integrações reais. `localStorage` pode ser apagado pelo usuário; timers param quando o navegador fecha; a deduplicação não cobre múltiplas abas/dispositivos. Os dados são fictícios e não saem do navegador.
-
-Para criar um produto comercial para lojas e empresas, é necessário especificar requisitos, backend seguro, base persistente, autenticação, permissões, registros de auditoria no servidor, estratégias de idempotência atômica, backups, monitoramento, privacidade/LGPD e testes de integração/carga. **Nenhuma promessa de desempenho multiusuário pode ser inferida deste demo.**
-
-## Evolução possível da Vitruno Studio
-
-- Controle de estoque com entradas/saídas reais.
-- Pedidos e orçamentos para negócios locais.
-- Controle de agendamentos e serviços.
-- Painel administrativo com usuários e relatórios.
-- Integração opcional com e-mail/WhatsApp, conforme APIs e consentimentos aplicáveis.
-
-Nenhum nome de cliente, dado corporativo ou integração real está incluído. Este repositório não contém licença de software livre explícita; decida os termos de distribuição antes de comercializar ou compartilhar como biblioteca reutilizável.
+**Leonardo Carvalho** · Desenvolvimento web e automação de processos  
+[Portfólio](https://leocarvalho090.github.io/portfolio-dev/) · [LinkedIn](https://www.linkedin.com/in/leonardo-carvalho-131464449) · [GitHub](https://github.com/LeoCarvalho090)
