@@ -69,11 +69,6 @@ npm test
 
 Os testes exigem Node.js 20 ou superior.
 
-## Transparência sobre os projetos
-
-Os websites e seus estabelecimentos são **fictícios**, com informações comerciais ilustrativas. Recursos como agendamento, WhatsApp, carrinho e formulário não enviam pedidos ou dados reais quando não configurados. Fotografias externas eventualmente utilizadas pertencem aos respectivos titulares e estão sujeitas às suas licenças.
-
-O código deste portfólio pode ser examinado publicamente, mas **não há licença de código aberto declarada**. Isso não concede autorização automática para redistribuição ou exploração comercial.
 
 ---
 
